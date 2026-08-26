@@ -1,13 +1,13 @@
 # Scheduling the refresh
 
-`scripts/refresh.sh` is a plain script — schedule it however your OS prefers.
+`scripts/refresh.sh` is a plain script; schedule it however your OS prefers.
 Pick one of the following. Weekly is a sane default; tune to how fast your
 domain moves.
 
 ## cron (Linux / macOS)
 
 ```cron
-# Every Monday at 07:00 — edit `crontab -e`
+# Every Monday at 07:00: edit `crontab -e`
 0 7 * * 1  /bin/bash /path/to/intel-forge/scripts/refresh.sh
 ```
 
@@ -70,6 +70,6 @@ ANTHROPIC_API_KEY=...        # only if you use the reference triage judge
 
 Knobs (all optional, set in the environment or `.env`):
 
-- `LOOKBACK` — days to look back each run (default 10)
-- `FRESHNESS_DAYS` — staleness threshold for skills (default 180)
-- `PYTHON` — python interpreter to use
+- `LOOKBACK`: days to look back each run (default 10)
+- `FRESHNESS_DAYS`: staleness threshold for skills (default 180)
+- `PYTHON`: python interpreter to use

@@ -2,7 +2,7 @@
 
 A skill is the **refined output** of your intelligence system: a distilled,
 reusable unit of know-how synthesized from the corpus. Corpus items are inputs;
-skills are what you make from them. The skill library is the valuable product —
+skills are what you make from them. The skill library is the valuable product;
 treat it as such.
 
 ## The loop
@@ -38,5 +38,5 @@ treat it as such.
 The corpus is bulky, noisy, and mostly other people's raw material. The skills
 are compact, validated, and yours. When you need to *demonstrate* what your
 system produces without handing over the whole engine, the skills are what you
-show: they prove the capability and the results while the corpus and pipeline —
-the means of production — stay with you.
+show: they prove the capability and the results while the corpus and pipeline
+(the means of production) stay with you.

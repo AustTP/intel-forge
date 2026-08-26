@@ -1,7 +1,7 @@
 # Skills Index
 
-> The router. Maps situations to skills so a human — or an agent orchestrating
-> over this library — can quickly find the right know-how. Regenerate or edit
+> The router. Maps situations to skills so a human or an agent orchestrating
+> over this library can quickly find the right know-how. Regenerate or edit
 > by hand as you add skills. Keep the trigger column specific; that's what makes
 > routing work.
 

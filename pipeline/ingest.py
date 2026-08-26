@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-ingest.py — run configured sources and write new items into the corpus.
+ingest.py: run configured sources and write new items into the corpus.
 
   python3 -m pipeline.ingest                      # all sources, full backfill
   python3 -m pipeline.ingest --since 2026-01-01   # only items on/after a date
@@ -11,7 +11,7 @@ Flow:  sources.yaml -> adapter.fetch() -> relevance filter -> dedup -> corpus/*.
 
 The relevance filter here is a CHEAP, ingest-time keyword gate (config/relevance.yaml)
 whose only job is to keep obvious noise out of the corpus. It is NOT the quality
-judge — that's the triage gate (pipeline/triage.py), which runs later against a
+judge. That's the triage gate (pipeline/triage.py), which runs later against a
 rubric. Keep this filter loose; let triage be the strict one.
 """
 

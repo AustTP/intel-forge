@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-skill_freshness.py — flag skill files that haven't been touched or re-validated
+skill_freshness.py: flag skill files that haven't been touched or re-validated
 in a while, so their claims get periodically re-checked against current reality
 instead of quietly rotting.
 
 Knowledge has a shelf life. A skill written against last year's facts, tools, or
-best practices can silently go stale. This tool doesn't decide correctness — it
+best practices can silently go stale. This tool doesn't decide correctness; it
 just surfaces the oldest skills so a human (or the triage gate) re-examines them.
 
 Freshness signal is the more recent of:

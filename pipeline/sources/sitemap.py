@@ -1,5 +1,5 @@
 """
-sitemap.py — generic sitemap adapter (EXAMPLE).
+sitemap.py: generic sitemap adapter (EXAMPLE).
 
 For sites without a feed. Reads a sitemap.xml, optionally filters URLs by a
 substring, fetches each page, and stores a text-converted copy. Configure:
@@ -10,7 +10,7 @@ substring, fetches each page, and stores a text-converted copy. Configure:
     url_contains: /research/     # optional: only URLs containing this
     limit: 50                    # optional: cap pages per run (default 100)
 
-Fetching full HTML pages is heavier and more fragile than a feed — prefer rss
+Fetching full HTML pages is heavier and more fragile than a feed. Prefer rss
 or rest_json when a source offers them. Respect the target's robots.txt (this
 adapter does) and keep the rate limit conservative.
 """

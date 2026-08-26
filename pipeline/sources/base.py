@@ -1,11 +1,11 @@
 """
-base.py — the contract every source adapter implements.
+base.py: the contract every source adapter implements.
 
 A source is anything that yields Items: an RSS feed, a REST API, a sitemap, a
 folder of files you drop in by hand, a database query. Adapters should be thin:
 fetch, normalize into Item objects, yield. All the shared concerns
 (rate limiting, robots, dedup, writing) live in core.py and are handled by the
-ingest runner — an adapter never writes to the corpus itself.
+ingest runner. An adapter never writes to the corpus itself.
 """
 
 from __future__ import annotations
@@ -37,6 +37,6 @@ class Source(ABC):
 
         Honor `since` where the upstream API supports date filtering; where it
         doesn't, yield everything and let the runner dedup. Yielding an item
-        that's already in the corpus is fine — it will be skipped.
+        that's already in the corpus is fine; it will be skipped.
         """
         raise NotImplementedError

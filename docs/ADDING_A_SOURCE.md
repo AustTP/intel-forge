@@ -3,13 +3,13 @@
 A source adapter turns some external thing (feed, API, database, folder) into a
 stream of `Item` objects. The runner handles the rest.
 
-## Option A — use a shipped adapter
+## Option A: use a shipped adapter
 
 If your source is an RSS/Atom feed, a JSON list endpoint, or a site with a
-sitemap, you don't write code at all — just add an entry to
+sitemap, you don't write code at all: just add an entry to
 `config/sources.yaml`. See `config/sources.example.yaml` for the shape of each.
 
-## Option B — write a new adapter
+## Option B: write a new adapter
 
 For anything else, write a small class. Three steps.
 
@@ -61,10 +61,10 @@ ADAPTERS["mysource"] = MySource
   it changes between runs, you'll get duplicates.
 - **Be polite.** Call `self.rl.wait(url)` before HTTP requests and respect
   `self.robots.can_fetch(url)`. The shipped adapters show the pattern. For
-  official APIs with documented rate limits, robots.txt may not apply — rate
+  official APIs with documented rate limits, robots.txt may not apply; rate
   limit anyway.
 - **Honor `since` when you can.** If the upstream supports date filtering, use
   it to pull only new items on scheduled runs. If not, yield everything; dedup
   makes it cheap.
-- **Keep adapters thin.** No writing to the corpus, no global filtering — the
+- **Keep adapters thin.** No writing to the corpus, no global filtering. The
   runner does that. Just fetch, normalize, yield.

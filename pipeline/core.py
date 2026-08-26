@@ -1,5 +1,5 @@
 """
-core.py — shared plumbing for the intelligence pipeline.
+core.py: shared plumbing for the intelligence pipeline.
 
 Everything here is domain-agnostic. It knows how to be a polite network
 citizen (rate limiting + robots.txt), how to give every ingested item a
@@ -38,7 +38,7 @@ class Item:
 
     `source` is the adapter key (e.g. "rss:acme-blog"). `identifier` is the
     most stable native ID the source exposes (a GUID, a CVE number, a
-    canonical URL) — it is what dedup keys off, so prefer something that does
+    canonical URL); it is what dedup keys off, so prefer something that does
     not change between runs. Everything else is presentation.
     """
     source: str
@@ -149,7 +149,7 @@ def is_relevant(text: str, include: list[str], exclude: list[str]) -> bool:
 
     `include`: at least one must appear (empty list = accept anything).
     `exclude`: none may appear.
-    Case-insensitive substring match — deliberately simple. Swap in embeddings
+    Case-insensitive substring match; deliberately simple. Swap in embeddings
     or an LLM classifier here if your domain needs semantic filtering.
     """
     t = text.lower()

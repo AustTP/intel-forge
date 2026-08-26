@@ -1,5 +1,5 @@
 """
-rss.py — generic RSS / Atom adapter (EXAMPLE).
+rss.py: generic RSS / Atom adapter (EXAMPLE).
 
 Works with any feed. Configure instances in sources.yaml:
 
@@ -10,7 +10,7 @@ Works with any feed. Configure instances in sources.yaml:
     author_fallback: "Acme"
 
 This is one of three reference adapters shipped with the template. It is not
-special — copy it as a starting point for your own sources.
+special. Copy it as a starting point for your own sources.
 """
 
 from __future__ import annotations

@@ -1,13 +1,13 @@
 # intel-forge
 
-A template for building a **self-updating intelligence system** — for any
+A template for building a **self-updating intelligence system** for any
 domain. Point it at sources you care about; it keeps a normalized corpus
 current, helps you distill that corpus into a library of reusable **skills**,
 and gates their quality with a rubric-driven judge.
 
 Nothing here is tied to a subject. What you track is entirely a matter of the
-sources you configure and the skills you write. The repo ships **empty** — no
-corpus, no sources, no skills — because the empty machine is the reusable part.
+sources you configure and the skills you write. The repo ships **empty**: no
+corpus, no sources, no skills, because the empty machine is the reusable part.
 
 ```
  SOURCES ──▶ CORPUS ──▶ SKILLS ──▶ TRIAGE GATE
@@ -48,7 +48,7 @@ bash scripts/refresh.sh                  # see scripts/schedule.md to automate
 |---|---|
 | `config/sources.yaml` | where intelligence comes from (feeds, APIs, sitemaps, your own adapters) |
 | `config/relevance.yaml` | cheap keyword gate that keeps obvious noise out of the corpus |
-| `config/triage_rubric.md` | **the important one** — what "good" means for your domain |
+| `config/triage_rubric.md` | **the important one**: what "good" means for your domain |
 | `config/triage.yaml` | triage verdicts + judge model settings |
 | `skills/` | your distilled, reusable know-how (the valuable output) |
 
@@ -81,4 +81,4 @@ Python 3.10+. Core deps in `requirements.txt` (`requests`, `feedparser`,
 
 ## License
 
-MIT — see [`LICENSE`](LICENSE).
+MIT. See [`LICENSE`](LICENSE).

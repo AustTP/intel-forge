@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 """
-triage.py — the triage gate. A rubric-driven, LLM-as-judge quality filter.
+triage.py: the triage gate. A rubric-driven, LLM-as-judge quality filter.
 
 This is the strict gate. Where the ingest relevance filter only keeps obvious
-noise out of the corpus, the triage gate evaluates a *candidate* — a proposed
-skill, a synthesized finding, a draft output, a corpus item you're deciding
-whether to promote — against an explicit rubric, and returns a structured
+noise out of the corpus, the triage gate evaluates a *candidate* (a proposed
+skill, a synthesized finding, a draft output, or a corpus item you're deciding
+whether to promote) against an explicit rubric and returns a structured
 verdict WITH reasoning. Every decision is auditable: you can see why the judge
 ruled the way it did, per criterion.
 
 Nothing here is domain-specific. What "good" means lives entirely in your
 rubric (config/triage_rubric.md) and the verdicts you allow
 (config/triage.yaml). Swap the rubric and the same machine grades an entirely
-different subject without a line of code changing — it never knows or cares
+different subject without a line of code changing; it never knows or cares
 what the domain is.
 
   # Evaluate a candidate file against the configured rubric:
@@ -25,7 +25,7 @@ what the domain is.
   python3 -m pipeline.triage --input candidate.md --print-prompt
 
 By default it looks for a judge via ANTHROPIC_API_KEY (reference adapter). Any
-provider works — see `Judge` below and docs/CONFIGURING_TRIAGE.md.
+provider works. See `Judge` below and docs/CONFIGURING_TRIAGE.md.
 """
 
 from __future__ import annotations
@@ -94,7 +94,7 @@ Judge = Callable[[str, TriageConfig], str]
 def anthropic_judge(prompt: str, cfg: TriageConfig) -> str:
     """Reference adapter using the Anthropic API. Optional dependency.
 
-    Replace this with OpenAI, a local model, Bedrock, etc. — the gate only
+    Replace this with OpenAI, a local model, Bedrock, etc. The gate only
     needs a string back. See docs/CONFIGURING_TRIAGE.md for a swap example.
     """
     try:
@@ -130,7 +130,7 @@ def build_prompt(candidate: str, cfg: TriageConfig) -> str:
         "suggested_fixes": ["<only if REVISE; else empty>"],
     }
     return f"""You are a strict triage judge. Evaluate the CANDIDATE below against the
-RUBRIC. Be specific and evidence-based. Do not be generous — the point of the
+RUBRIC. Be specific and evidence-based. Do not be generous; the point of the
 gate is to keep the bar high.
 
 Return ONLY a JSON object, no prose before or after, matching this schema:

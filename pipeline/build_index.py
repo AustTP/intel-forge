@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-build_index.py — regenerate corpus/INDEX.md, a browsable table of what's ingested.
+build_index.py: regenerate corpus/INDEX.md, a browsable table of what's ingested.
 
   python3 -m pipeline.build_index
 
 Reads the metadata block from each corpus/*.md file and writes a single index
 grouped by source, newest first. Run it after ingest (the scheduler does this
-for you). The index is what a human — or an agent seeding skills — scans to see
+for you). The index is what a human or an agent seeding skills scans to see
 what raw material is available.
 """
 
@@ -49,7 +49,7 @@ def main() -> None:
     lines = [
         "# Corpus Index",
         "",
-        f"_Generated {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')} — "
+        f"_Generated {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')} - "
         f"{len(files)} items across {len(by_source)} sources._",
         "",
     ]
@@ -62,7 +62,7 @@ def main() -> None:
         for published, title, url, fname in rows:
             safe_title = title.replace("|", "\\|")
             link = f"[{safe_title}]({url})" if url else safe_title
-            lines.append(f"| {published or '—'} | {link} | `{fname}` |")
+            lines.append(f"| {published or ''} | {link} | `{fname}` |")
         lines.append("")
 
     (CORPUS_DIR / "INDEX.md").write_text("\n".join(lines), encoding="utf-8")

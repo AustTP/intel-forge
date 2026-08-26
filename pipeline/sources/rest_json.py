@@ -1,5 +1,5 @@
 """
-rest_json.py — generic REST / JSON API adapter (EXAMPLE).
+rest_json.py: generic REST / JSON API adapter (EXAMPLE).
 
 For sources that expose a JSON list endpoint. You tell it, via sources.yaml,
 which JSON fields map to Item fields using simple dotted paths. Example:
@@ -22,8 +22,8 @@ which JSON fields map to Item fields using simple dotted paths. Example:
     auth_env: EXAMPLE_API_TOKEN
 
 Pagination varies wildly between APIs, so this reference adapter fetches a
-single page. Override `fetch()` in a subclass for cursor/offset pagination —
-see docs/ADDING_A_SOURCE.md.
+single page. Override `fetch()` in a subclass for cursor/offset pagination.
+See docs/ADDING_A_SOURCE.md.
 """
 
 from __future__ import annotations

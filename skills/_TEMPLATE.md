@@ -1,9 +1,9 @@
 <!--
-_TEMPLATE.md — copy this to skills/<your-skill>.md and fill it in.
+_TEMPLATE.md: copy this to skills/<your-skill>.md and fill it in.
 Files starting with "_" and SKILLS_INDEX.md are ignored by the freshness
 checker and are not treated as skills.
 
-A skill is a distilled, reusable unit of know-how — the refined OUTPUT of your
+A skill is a distilled, reusable unit of know-how: the refined OUTPUT of your
 intelligence system, not raw source material. Corpus items are inputs; skills
 are what you (or an agent) synthesize from many corpus items into something
 directly usable. Keep skills concrete and example-driven.
@@ -30,7 +30,7 @@ competent practitioner could act on it. Prefer concrete detail over generality.
 
 ## Worked example
 
-At least one fully concrete example. This is often the most valuable part —
+At least one fully concrete example. This is often the most valuable part:
 examples transfer where abstract description doesn't.
 
 ## Sources
