@@ -1,0 +1,43 @@
+# sources.example.yaml — copy to sources.yaml and edit.
+#
+# This file declares WHERE your intelligence comes from. Every entry is handled
+# by an adapter (pipeline/sources/). The template ships three generic adapters:
+# rss, rest_json, sitemap. Add your own for anything else (see
+# docs/ADDING_A_SOURCE.md) and register it in pipeline/sources/__init__.py.
+#
+# Nothing here is domain-specific. The examples below point at example.com and
+# exist only to show the shape. Replace them entirely with your own sources —
+# whatever field you're building intelligence about.
+
+# Minimum seconds between requests to the same domain (be a good citizen).
+rate_limit: 1.0
+
+sources:
+  # --- an RSS/Atom feed -----------------------------------------------------
+  - name: example-blog
+    type: rss
+    url: https://blog.example.com/feed/
+    author_fallback: "Example"
+
+  # --- a JSON REST endpoint -------------------------------------------------
+  - name: example-api
+    type: rest_json
+    url: https://api.example.com/v1/items
+    items_path: data          # dotted path to the list inside the response
+    map:                      # which JSON fields become which Item fields
+      identifier: id
+      title: title
+      url: url
+      published: created_at
+      author: author
+      content_md: body
+    params:
+      per_page: 100
+    # auth_env: EXAMPLE_API_TOKEN   # name of env var holding a bearer token
+
+  # --- a site with only a sitemap ------------------------------------------
+  - name: example-site
+    type: sitemap
+    url: https://www.example.com/sitemap.xml
+    url_contains: /articles/  # optional URL filter
+    limit: 50

@@ -1,0 +1,2 @@
+# The corpus lives here: one normalized markdown file per ingested item.
+# It is intentionally gitignored - the pipeline rebuilds it.

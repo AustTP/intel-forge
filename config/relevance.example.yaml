@@ -1,0 +1,23 @@
+# relevance.example.yaml — copy to relevance.yaml and edit.
+#
+# The ingest-time relevance filter. Its ONLY job is to keep obvious noise out
+# of the corpus. Keep it loose — precision is the triage gate's job, not this.
+#
+# include: an item is kept only if at least one of these substrings appears in
+#          its title or body. Leave empty to accept everything.
+# exclude: an item is dropped if any of these substrings appears.
+#
+# Matching is case-insensitive substring matching. If your domain needs
+# semantic filtering, replace is_relevant() in pipeline/core.py with an
+# embedding or classifier call — the interface stays the same.
+#
+# The terms below are placeholders. Replace them with vocabulary from YOUR
+# domain (whatever subject your intelligence system tracks).
+
+include:
+  - example-term-one
+  - example-term-two
+
+exclude:
+  - sponsored
+  - advertisement

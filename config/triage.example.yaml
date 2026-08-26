@@ -1,0 +1,29 @@
+# triage.example.yaml — copy to triage.yaml and edit.
+#
+# Configures the triage gate (pipeline/triage.py). The rubric itself — what
+# "good" means — lives in triage_rubric.md. This file configures the mechanics:
+# the verdicts the judge may return, and the model settings.
+#
+# VERDICTS: rename, add, or remove freely. Each needs a name (what the judge
+# returns), a meaning (shown to the judge), and an action (what YOUR pipeline
+# does with it — documentation for you; the code keys off ACCEPT for its exit
+# code, so keep one clearly-accept verdict or adjust triage.py).
+
+verdicts:
+  - name: ACCEPT
+    meaning: "Meets every must-pass criterion. Keep as-is."
+    action: keep
+  - name: REVISE
+    meaning: "Close, but one or more fixable problems. Return with notes."
+    action: return-with-notes
+  - name: REJECT
+    meaning: "Fails a must-pass criterion. Discard."
+    action: drop
+  - name: ESCALATE
+    meaning: "Genuinely ambiguous or judge is low-confidence. A human decides."
+    action: route-to-human
+
+# Judge model. The reference adapter uses the Anthropic API; any provider works
+# if you supply your own judge function (see docs/CONFIGURING_TRIAGE.md).
+model: claude-sonnet-4-6
+max_tokens: 1024
